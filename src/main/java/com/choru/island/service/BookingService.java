@@ -40,9 +40,8 @@ public class BookingService {
         if(islandBookingRepository.existsByParentMemberAndShopClass(member, shopClass)){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "예약이 중복되 었습니다.");
         }
-
-        if(LocalDate.now().plusDays(1).isAfter(shopClass.getClassDate())
-                && LocalDate.now().plusDays(14).isBefore(shopClass.getClassDate())){
+        if(shopClass.getClassDate().isBefore(LocalDate.now().plusDays(1))
+                || shopClass.getClassDate().isAfter(LocalDate.now().plusDays(14))){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "예약날짜가 올바르지 않습니다.");
         }
 
