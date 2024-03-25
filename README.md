@@ -24,8 +24,7 @@ http://localhost:8080/swagger-ui/index.html#/
 
 ## ERD 
 - https://www.erdcloud.com/d/Wv66DHXGqYSKDgpGs
-![](../../Desktop/스크린샷 2024-03-24 오후 10.09.01.png)
-
+<img width="658" alt="스크린샷 2024-03-24 오후 10 09 01" src="https://github.com/choru90/Island/assets/77948010/9f966a1e-ccc3-4351-9d13-cd985edde522">
 
 ## 시퀀스 다이어그램
 
