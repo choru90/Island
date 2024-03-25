@@ -27,8 +27,7 @@ http://localhost:8080/swagger-ui/index.html#/
 <img width="658" alt="스크린샷 2024-03-24 오후 10 09 01" src="https://github.com/choru90/Island/assets/77948010/9f966a1e-ccc3-4351-9d13-cd985edde522">
 
 ## 시퀀스 다이어그램
+<img width="561" alt="스크린샷 2024-03-25 오후 9 45 26" src="https://github.com/choru90/Island/assets/77948010/b144a874-70c6-4382-9769-449b270cd4de">
+<img width="553" alt="스크린샷 2024-03-25 오후 9 45 18" src="https://github.com/choru90/Island/assets/77948010/4d1dc907-3420-4b99-b27a-2ec85016f837">
 
 
-![](../../Desktop/스크린샷 2024-03-25 오후 9.45.18.png)
-
-![](../../Desktop/스크린샷 2024-03-25 오후 9.45.26.png)
