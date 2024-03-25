@@ -33,20 +33,31 @@ public class BookingService {
         ParentMember member = memberRepository.findById(uid).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "유저 정보가 올바르지 않습니다."));
         ShopClass shopClass = classRepository.findById(classId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "수업 정보가 올바르지 않습니다."));
 
+        validateMember(shopClass);
+        validateBookingDuplicate(member, shopClass);
+        validateBookingDate(shopClass);
+
+        IslandBooking booking = new IslandBooking(member, shopClass);
+        islandBookingRepository.save(booking);
+    }
+
+    private void validateMember(ShopClass shopClass){
         if(shopClass.getMemberMax() <= islandBookingRepository.countByShopClass(shopClass) + ADD_MEMBER_COUNT){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "예약 인원을 초과 하였습니다.");
         }
+    }
 
+    private void validateBookingDuplicate(ParentMember member, ShopClass shopClass){
         if(islandBookingRepository.existsByParentMemberAndShopClass(member, shopClass)){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "예약이 중복되 었습니다.");
         }
+    }
+
+    private void validateBookingDate(ShopClass shopClass){
         if(shopClass.getClassDate().isBefore(LocalDate.now().plusDays(1))
                 || shopClass.getClassDate().isAfter(LocalDate.now().plusDays(14))){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "예약날짜가 올바르지 않습니다.");
         }
-
-        IslandBooking booking = new IslandBooking(member, shopClass);
-        islandBookingRepository.save(booking);
     }
 
     @Transactional
